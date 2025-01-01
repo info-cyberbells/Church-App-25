@@ -78,7 +78,7 @@ jobs:
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'Church-App'
+          app-name: 'Church-App-Translator'
           resource-group: 'ChurchTranslator'
           slot-name: 'Production'
           
