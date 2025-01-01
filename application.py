@@ -671,4 +671,13 @@ def health_check():
 
 # Main application entry
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",port=8000)
+    try:
+        logger.info("Starting Flask application")
+        port = int(os.environ.get('PORT', 8000))  # Use Azure's assigned port
+        app.config['AZURE_WEBAPP'] = True
+        
+        # Bind the app to Azure App Service environment
+        app.run(host='0.0.0.0', port=port)
+    except Exception as e:
+        logger.error(f"Application startup error: {str(e)}", exc_info=True)
+        cleanup()
