@@ -681,6 +681,7 @@ if __name__ == '__main__':
                 host='0.0.0.0',
                 port=port
             )
-         except Exception as e:
+     except Exception as e:
+         
         logger.error(f"Application startup error: {str(e)}", exc_info=True)
         cleanup()
